@@ -1,4 +1,6 @@
-﻿namespace ScreenMate
+﻿using System.Drawing;
+
+namespace ScreenMate
 {
     public class ScreenMate
     {
