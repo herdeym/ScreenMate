@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ScreenMate.Controller;
+using ScreenMate.Controller.Components;
+using ScreenMate.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +15,6 @@ namespace ScreenMate
 {
     public partial class Form1 : Form
     {
-        //https://social.msdn.microsoft.com/Forums/vstudio/en-US/0b34f53b-ba56-4939-b9a0-2ff25b365501/displaying-parts-of-an-image-animationally?forum=csharpgeneral
         public Form1()
         {
             this.BackColor = Color.LimeGreen;
@@ -20,6 +22,8 @@ namespace ScreenMate
             this.TopMost = true;
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            
+
             InitializeComponent();
         }
 
@@ -30,7 +34,6 @@ namespace ScreenMate
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
             Invalidate();
         }
 
@@ -42,10 +45,10 @@ namespace ScreenMate
 
         void DrawCircle(Graphics g)
         {
-            this.Cursor = new Cursor(Cursor.Current.Handle);
-            Point screenMatePos = new Point(Cursor.Position.X + 10, Cursor.Position.Y - 10);
-            int radius = 30;
-            g.FillEllipse(new SolidBrush(Color.Red), screenMatePos.X, screenMatePos.Y, radius, radius);
+            var mate = MateController.GetMateController().Mate;
+            var diameter = 10;
+            var color = mate.IsIdle ? Color.Blue : Color.Red;
+            g.FillEllipse(new SolidBrush(color), mate.Position.X-diameter/2, mate.Position.Y-diameter/2, diameter, diameter);
         }
     }
 }

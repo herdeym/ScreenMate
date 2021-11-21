@@ -1,3 +1,4 @@
+using ScreenMate.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace ScreenMate
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var configuartion=ConfigController.GetConfigController().Configurations;
+            ComponentConfigurator.GetComponentConfigurator().Initialize(configuartion);
+
             Application.Run(new Form1());
         }
     }
