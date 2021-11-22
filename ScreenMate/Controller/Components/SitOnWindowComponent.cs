@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ScreenMate.Controller.Components
 {
@@ -13,6 +14,9 @@ namespace ScreenMate.Controller.Components
     {
         [DllImport("user32.dll")]
         private static extern int GetWindowRect(IntPtr hwnd, out Rectangle rect);
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetWindow(IntPtr hWnd, uint uCmd);
+
         private Rectangle position;
 
         public override void RunComponent()
@@ -22,25 +26,40 @@ namespace ScreenMate.Controller.Components
 
         public override void ResumeComponent()
         {
-            var openProcesses = System.Diagnostics.Process.GetProcesses()
-                    .Where(p => p.MainWindowTitle != "");
-            List<Process> openWindowProcesses = new List<Process>();
-            foreach (var p in openProcesses)
+            var openWindowProcesses = Process.GetProcesses()
+                    .Where(p => p.MainWindowTitle != "" && p.ProcessName != "ScreenMate").ToList();
+            
+            Process top = null;
+            int topz = int.MaxValue;
+            foreach (Process p in openWindowProcesses)
             {
-                if (p.MainWindowTitle != "")
-                    openWindowProcesses.Add(p);
+                IntPtr handle = p.MainWindowHandle;
+                int z = 0;
+                do
+                {
+                    z++;
+                    handle = GetWindow(handle, 3);
+                } while (handle != IntPtr.Zero);
+
+                if (z < topz)
+                {
+                    top = p;
+                    topz = z;
+                }
             }
 
-            var random = new Random();
-            var selectedWindow = openWindowProcesses.ElementAt(random.Next(openWindowProcesses.Count()));
-            Debug.WriteLine(selectedWindow.ProcessName);
-            var windowHandler = selectedWindow.MainWindowHandle;
-
-            GetWindowRect(windowHandler, out position);
-
-            destination = position.Location;
-
-            base.ResumeComponent();
+            if (top != null)
+            {
+                Debug.WriteLine(top.ProcessName);
+                var windowHandler = top.MainWindowHandle;
+                GetWindowRect(windowHandler, out position);
+                if (position.Y > 60)
+                {
+                    destination = new Point(position.X + new Random().Next(position.Width-position.X), position.Location.Y-10);
+                    base.ResumeComponent();
+                }
+            }
+            
         }
     }
 }
