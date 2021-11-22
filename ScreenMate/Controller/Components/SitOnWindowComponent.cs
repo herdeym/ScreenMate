@@ -55,7 +55,8 @@ namespace ScreenMate.Controller.Components
                 GetWindowRect(windowHandler, out position);
                 if (position.Y > 60)
                 {
-                    destination = new Point(position.X + new Random().Next(position.Width-position.X), position.Location.Y-10);
+                    var bounds = Screen.PrimaryScreen.Bounds;
+                    destination = new Point(Math.Max(bounds.Width-10, Math.Min(10,position.X + new Random().Next(position.Width-position.X))), position.Location.Y-10);
                     base.ResumeComponent();
                 }
             }
