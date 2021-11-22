@@ -22,7 +22,7 @@ namespace ScreenMate
             this.TopMost = true;
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            
+
 
             InitializeComponent();
         }

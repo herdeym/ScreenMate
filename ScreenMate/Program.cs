@@ -1,4 +1,5 @@
 using ScreenMate.Controller;
+using ScreenMate.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace ScreenMate
             var configuartion=ConfigController.GetConfigController().Configurations;
             ComponentConfigurator.GetComponentConfigurator().Initialize(configuartion);
 
-            Application.Run(new Form1());
+            Application.Run(new TrayIconApplicationContext());
         }
     }
 }
