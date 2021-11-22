@@ -20,7 +20,7 @@ namespace ScreenMate.Controller
 			componentConfigurator ??= new ComponentConfigurator();
 			return componentConfigurator;
 		}
-		public ComponentConfigurator()
+		private ComponentConfigurator()
 		{
 			componentRepository = new ComponentRepository();
 		}
@@ -80,6 +80,22 @@ namespace ScreenMate.Controller
 			{
 				var newComponent = (IComponent)Activator.CreateInstance(component);
 				componentRepository.InsertOrUpdate(newComponent);
+			}
+		}
+
+		public void SuspendAllComponents()
+        {
+			foreach (var component in componentRepository.GetComponents())
+            {
+				component.SuspendComponent();
+            }
+        }
+
+		public void ResumeAllComponents()
+		{
+			foreach (var component in componentRepository.GetComponents())
+			{
+				component.ResumeComponent();
 			}
 		}
 	}

@@ -12,7 +12,7 @@ namespace ScreenMate.Controller
 	{
 		private readonly string configFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/ScreenMate/configurations.json";
 		private readonly ComponentConfigurator componentConfigurator = ComponentConfigurator.GetComponentConfigurator();
-		public Configurations Configurations { get; }
+		public Configurations Configurations { get; set; }
 
 		private static ConfigController configController;
 		public static ConfigController GetConfigController()

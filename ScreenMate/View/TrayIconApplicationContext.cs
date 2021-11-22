@@ -21,6 +21,9 @@ namespace ScreenMate.View
                 ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(),
                 Visible = true
             };
+            trayIcon.ContextMenuStrip.Items.Add("Start", Image.FromFile("../../../Resources/tray_icon.ico"), OnStart);
+            trayIcon.ContextMenuStrip.Items.Add("Stop", Image.FromFile("../../../Resources/tray_icon.ico"), OnStop);
+            trayIcon.ContextMenuStrip.Items.Add("Configure", Image.FromFile("../../../Resources/tray_icon.ico"), OnConfigure);
             trayIcon.ContextMenuStrip.Items.Add("Exit",Image.FromFile("../../../Resources/tray_icon.ico") ,OnExit);
         }
 
@@ -30,6 +33,22 @@ namespace ScreenMate.View
             trayIcon.Dispose();
 
             Environment.Exit(1);
+        }
+
+        private void OnStart(object sender, EventArgs e)
+        {
+            ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
+        }
+
+        private void OnStop(object sender, EventArgs e)
+        {
+            ComponentConfigurator.GetComponentConfigurator().SuspendAllComponents();
+        }
+
+        private void OnConfigure(object sender, EventArgs e)
+        {
+            var dialog = new Form2();
+            dialog.Show();
         }
 
         private void OnRamComponent(object sender, EventArgs e)
