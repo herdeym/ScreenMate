@@ -6,10 +6,10 @@ namespace ScreenMate.Model
 {
 	public class Configurations
 	{
-		public List<string> EnabledComponents { get; set; } = new List<string>() { "Disappear", "Idle", "MouseFollow", "Processor", "Ram" };
-		public int ProcessorThreshold=90;
-		public int RamThreshold=45;
-		public int IdleThresholdInSeconds=10;
+		public List<string> EnabledComponents { get; set; }
+		public int ProcessorThreshold;
+		public int RamThreshold;
+		public int IdleThresholdInSeconds;
 
 	}
 }
