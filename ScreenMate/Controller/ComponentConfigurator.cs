@@ -12,7 +12,7 @@ namespace ScreenMate.Controller
 	public class ComponentConfigurator
 	{
 		private ComponentRepository componentRepository;
-
+		private ManualResetEvent manualResetEvent;
 
 		private static ComponentConfigurator componentConfigurator;
 		public static ComponentConfigurator GetComponentConfigurator()
@@ -27,6 +27,7 @@ namespace ScreenMate.Controller
 
 		public void Initialize(Configurations configuration)
 		{
+			manualResetEvent = new ManualResetEvent(true);
 			ConfigureComponents(configuration);
 			new Thread(UpdateMateMovementBehaviour).Start();
 		}
@@ -35,12 +36,14 @@ namespace ScreenMate.Controller
 		{
 			while (true)
 			{
+				manualResetEvent.WaitOne();
 				var movementComponents = componentRepository.GetAllMovementComponent();
 				foreach (var movementComponent in movementComponents)
 				{
 					movementComponent.SuspendComponent();
 				}
-				movementComponents[new Random().Next(movementComponents.Count)].ResumeComponent();
+				if(movementComponents.Count>0)
+					movementComponents[new Random().Next(movementComponents.Count)].ResumeComponent();
 				Thread.Sleep(10000);
 			}
 		}
@@ -85,6 +88,7 @@ namespace ScreenMate.Controller
 
 		public void SuspendAllComponents()
         {
+			manualResetEvent.Reset();
 			foreach (var component in componentRepository.GetComponents())
             {
 				component.SuspendComponent();
@@ -93,6 +97,7 @@ namespace ScreenMate.Controller
 
 		public void ResumeAllComponents()
 		{
+			manualResetEvent.Set();
 			foreach (var component in componentRepository.GetComponents())
 			{
 				component.ResumeComponent();

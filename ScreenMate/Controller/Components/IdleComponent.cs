@@ -30,7 +30,7 @@ namespace ScreenMate.Controller.Components
             mate.IsIdle = configurations.IdleThresholdInSeconds < IdleTime();
             Debug.WriteLine(mate.IsIdle);
         }
-        public int IdleTime() //In seconds
+        private int IdleTime() //In seconds
         {
             LASTINPUTINFO lastinputinfo = new LASTINPUTINFO();
             lastinputinfo.cbSize = (uint)Marshal.SizeOf(lastinputinfo);

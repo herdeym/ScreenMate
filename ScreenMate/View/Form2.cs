@@ -13,6 +13,7 @@ namespace ScreenMate.View
 {
     public partial class Form2 : Form
     {
+        private OpenFileDialog ofd;
         public Form2()
         {
             ComponentConfigurator.GetComponentConfigurator().SuspendAllComponents();
@@ -28,6 +29,7 @@ namespace ScreenMate.View
             this.ramTextBox.Text = configuration.RamThreshold.ToString();
             this.cpuTextBox.Text = configuration.ProcessorThreshold.ToString();
             this.idleTextBox.Text = configuration.IdleThresholdInSeconds.ToString();
+            this.uploadFeedbackLabel.Visible = false;
 
         }
 
@@ -64,6 +66,25 @@ namespace ScreenMate.View
             ConfigController.GetConfigController().SaveConfigurations();
             ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
             this.Close();
+        }
+
+        private void uploadButton_Click(object sender, EventArgs e)
+        {
+            ofd = new OpenFileDialog();
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            DialogResult result = ofd.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                uploadFeedbackLabel.Text = "Successfull upload.";
+                Image newTileset = Image.FromFile(ofd.FileName);
+            }
+            else
+            {
+                uploadFeedbackLabel.Text = "Upload canceled.";
+            }
+
+            uploadFeedbackLabel.Visible = true;
+
         }
     }
 }
