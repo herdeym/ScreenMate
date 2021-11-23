@@ -41,7 +41,9 @@ namespace ScreenMate.Controller
 		public void SaveConfigurations()
 		{
 			string json = JsonConvert.SerializeObject(Configurations).ToString();
-			//mappa ellenőrzés
+			//implicit check
+			Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ScreenMate");
+
 			File.WriteAllText(configFilePath, json);
 
 			componentConfigurator.ReconfigureComponents(Configurations);
