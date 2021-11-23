@@ -56,7 +56,7 @@ namespace ScreenMate.Controller.Components
                 if (position.Y > 60)
                 {
                     var bounds = Screen.PrimaryScreen.Bounds;
-                    destination = new Point(Math.Max(bounds.Width-10, Math.Min(10,position.X + new Random().Next(position.Width-position.X))), position.Location.Y-10);
+                    destination = new Point(Math.Min(bounds.Width-10, Math.Max(10,position.X + new Random().Next(position.Width-position.X))), position.Location.Y-10);
                     base.ResumeComponent();
                 }
             }
