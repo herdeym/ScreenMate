@@ -61,8 +61,7 @@ namespace ScreenMate.View
             };
 
             ConfigController.GetConfigController().Configurations = newConfig;
-            //ConfigController.GetConfigController().SaveConfigurations();
-            ComponentConfigurator.GetComponentConfigurator().ReconfigureComponents(newConfig);
+            ConfigController.GetConfigController().SaveConfigurations();
             ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
             this.Close();
         }

@@ -208,5 +208,6 @@ namespace ScreenMate.View
         private System.Windows.Forms.TextBox cpuTextBox;
         private System.Windows.Forms.TextBox idleTextBox;
         private System.Windows.Forms.Button saveButton;
+
     }
 }
