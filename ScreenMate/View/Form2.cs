@@ -14,6 +14,7 @@ namespace ScreenMate.View
     public partial class Form2 : Form
     {
         private OpenFileDialog ofd;
+        private string filePath = "";
         public Form2()
         {
             ComponentConfigurator.GetComponentConfigurator().SuspendAllComponents();
@@ -60,6 +61,7 @@ namespace ScreenMate.View
                 RamThreshold = Convert.ToInt32(this.ramTextBox.Text),
                 ProcessorThreshold = Convert.ToInt32(this.cpuTextBox.Text),
                 IdleThresholdInSeconds = Convert.ToInt32(this.idleTextBox.Text),
+                ImagePath = filePath
             };
 
             ConfigController.GetConfigController().Configurations = newConfig;
@@ -76,7 +78,7 @@ namespace ScreenMate.View
             if(result == DialogResult.OK)
             {
                 uploadFeedbackLabel.Text = "Successfull upload.";
-                Image newTileset = Image.FromFile(ofd.FileName);
+                filePath = ofd.FileName;
             }
             else
             {
