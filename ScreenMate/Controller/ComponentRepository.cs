@@ -51,5 +51,10 @@ namespace ScreenMate.Controller
 		{
 			return components.Values.Where(c => c.GetType().IsSubclassOf(typeof(MovementComponentBase))).ToList();
 		}
-	}
+
+        public IEnumerable<IComponent> GetComponents()
+        {
+            return componentRepository.components.Values;
+        }
+    }
 }
