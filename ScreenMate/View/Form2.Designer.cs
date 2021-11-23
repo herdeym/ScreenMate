@@ -42,6 +42,8 @@ namespace ScreenMate.View
             this.cpuTextBox = new System.Windows.Forms.TextBox();
             this.idleTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
+            this.uploadButton = new System.Windows.Forms.Button();
+            this.uploadFeedbackLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -160,7 +162,7 @@ namespace ScreenMate.View
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(24, 276);
+            this.saveButton.Location = new System.Drawing.Point(203, 276);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 13;
@@ -168,11 +170,32 @@ namespace ScreenMate.View
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // uploadButton
+            // 
+            this.uploadButton.Location = new System.Drawing.Point(24, 249);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(75, 41);
+            this.uploadButton.TabIndex = 14;
+            this.uploadButton.Text = "Upload new tileset";
+            this.uploadButton.UseVisualStyleBackColor = true;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // uploadFeedbackLabel
+            // 
+            this.uploadFeedbackLabel.AutoSize = true;
+            this.uploadFeedbackLabel.Location = new System.Drawing.Point(12, 293);
+            this.uploadFeedbackLabel.Name = "uploadFeedbackLabel";
+            this.uploadFeedbackLabel.Size = new System.Drawing.Size(108, 15);
+            this.uploadFeedbackLabel.TabIndex = 15;
+            this.uploadFeedbackLabel.Text = "Successfull upload!\r\n";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 311);
+            this.Controls.Add(this.uploadFeedbackLabel);
+            this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.idleTextBox);
             this.Controls.Add(this.cpuTextBox);
@@ -208,5 +231,7 @@ namespace ScreenMate.View
         private System.Windows.Forms.TextBox cpuTextBox;
         private System.Windows.Forms.TextBox idleTextBox;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button uploadButton;
+        private System.Windows.Forms.Label uploadFeedbackLabel;
     }
 }
