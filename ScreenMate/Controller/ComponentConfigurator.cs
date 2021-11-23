@@ -20,7 +20,7 @@ namespace ScreenMate.Controller
 			componentConfigurator ??= new ComponentConfigurator();
 			return componentConfigurator;
 		}
-		public ComponentConfigurator()
+		private ComponentConfigurator()
 		{
 			componentRepository = new ComponentRepository();
 		}
