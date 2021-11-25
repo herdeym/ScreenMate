@@ -3,6 +3,7 @@ using ScreenMate.Controller.Components;
 using ScreenMate.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
 
@@ -24,6 +25,14 @@ namespace ScreenMate.Controller
 		private ConfigController()
 		{
 			Configurations = LoadConfigurations();
+			if(Configurations.EnabledComponents == null || Configurations.ImagePath == null)
+            {
+				Configurations.EnabledComponents = new List<string>() { "MouseFollow" };
+				Configurations.ImagePath = "../../../Resources/RPGSoldier32x32.png";
+				Configurations.ProcessorThreshold = 70;
+				Configurations.RamThreshold = 70;
+				Configurations.IdleThresholdInSeconds = 10;
+			}
 		}
 
 		private Configurations LoadConfigurations()
