@@ -49,9 +49,9 @@ namespace ScreenMate.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 40);
+            this.label2.Location = new System.Drawing.Point(65, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 15);
+            this.label2.Size = new System.Drawing.Size(183, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "RAM usage threshold (%): ";
             // 
@@ -59,9 +59,10 @@ namespace ScreenMate.View
             // 
             this.ramCheckBox.AutoSize = true;
             this.ramCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ramCheckBox.Location = new System.Drawing.Point(24, 12);
+            this.ramCheckBox.Location = new System.Drawing.Point(27, 16);
+            this.ramCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ramCheckBox.Name = "ramCheckBox";
-            this.ramCheckBox.Size = new System.Drawing.Size(108, 25);
+            this.ramCheckBox.Size = new System.Drawing.Size(133, 32);
             this.ramCheckBox.TabIndex = 2;
             this.ramCheckBox.Text = "RAM usage";
             this.ramCheckBox.UseVisualStyleBackColor = true;
@@ -70,9 +71,10 @@ namespace ScreenMate.View
             // 
             this.disappearCheckBox.AutoSize = true;
             this.disappearCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.disappearCheckBox.Location = new System.Drawing.Point(24, 109);
+            this.disappearCheckBox.Location = new System.Drawing.Point(27, 145);
+            this.disappearCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.disappearCheckBox.Name = "disappearCheckBox";
-            this.disappearCheckBox.Size = new System.Drawing.Size(160, 25);
+            this.disappearCheckBox.Size = new System.Drawing.Size(199, 32);
             this.disappearCheckBox.TabIndex = 3;
             this.disappearCheckBox.Text = "Random disappear";
             this.disappearCheckBox.UseVisualStyleBackColor = true;
@@ -81,9 +83,10 @@ namespace ScreenMate.View
             // 
             this.idleCheckBox.AutoSize = true;
             this.idleCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.idleCheckBox.Location = new System.Drawing.Point(24, 140);
+            this.idleCheckBox.Location = new System.Drawing.Point(27, 187);
+            this.idleCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idleCheckBox.Name = "idleCheckBox";
-            this.idleCheckBox.Size = new System.Drawing.Size(141, 25);
+            this.idleCheckBox.Size = new System.Drawing.Size(174, 32);
             this.idleCheckBox.TabIndex = 4;
             this.idleCheckBox.Text = "Bored when idle";
             this.idleCheckBox.UseVisualStyleBackColor = true;
@@ -91,9 +94,9 @@ namespace ScreenMate.View
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 168);
+            this.label1.Location = new System.Drawing.Point(65, 224);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Idle after (s): ";
             // 
@@ -101,9 +104,10 @@ namespace ScreenMate.View
             // 
             this.followCheckBox.AutoSize = true;
             this.followCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.followCheckBox.Location = new System.Drawing.Point(24, 186);
+            this.followCheckBox.Location = new System.Drawing.Point(27, 248);
+            this.followCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.followCheckBox.Name = "followCheckBox";
-            this.followCheckBox.Size = new System.Drawing.Size(126, 25);
+            this.followCheckBox.Size = new System.Drawing.Size(155, 32);
             this.followCheckBox.TabIndex = 6;
             this.followCheckBox.Text = "Follow mouse";
             this.followCheckBox.UseVisualStyleBackColor = true;
@@ -112,9 +116,10 @@ namespace ScreenMate.View
             // 
             this.cpuCheckBox.AutoSize = true;
             this.cpuCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cpuCheckBox.Location = new System.Drawing.Point(24, 59);
+            this.cpuCheckBox.Location = new System.Drawing.Point(27, 79);
+            this.cpuCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cpuCheckBox.Name = "cpuCheckBox";
-            this.cpuCheckBox.Size = new System.Drawing.Size(104, 25);
+            this.cpuCheckBox.Size = new System.Drawing.Size(127, 32);
             this.cpuCheckBox.TabIndex = 7;
             this.cpuCheckBox.Text = "CPU usage";
             this.cpuCheckBox.UseVisualStyleBackColor = true;
@@ -122,9 +127,9 @@ namespace ScreenMate.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 91);
+            this.label3.Location = new System.Drawing.Point(65, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 15);
+            this.label3.Size = new System.Drawing.Size(174, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "CPU usage threshold (%):";
             // 
@@ -132,39 +137,44 @@ namespace ScreenMate.View
             // 
             this.sitCheckBox.AutoSize = true;
             this.sitCheckBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.sitCheckBox.Location = new System.Drawing.Point(24, 218);
+            this.sitCheckBox.Location = new System.Drawing.Point(27, 291);
+            this.sitCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sitCheckBox.Name = "sitCheckBox";
-            this.sitCheckBox.Size = new System.Drawing.Size(194, 25);
+            this.sitCheckBox.Size = new System.Drawing.Size(240, 32);
             this.sitCheckBox.TabIndex = 9;
             this.sitCheckBox.Text = "Sit on random windows";
             this.sitCheckBox.UseVisualStyleBackColor = true;
             // 
             // ramTextBox
             // 
-            this.ramTextBox.Location = new System.Drawing.Point(210, 37);
+            this.ramTextBox.Location = new System.Drawing.Point(240, 49);
+            this.ramTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ramTextBox.Name = "ramTextBox";
-            this.ramTextBox.Size = new System.Drawing.Size(43, 23);
+            this.ramTextBox.Size = new System.Drawing.Size(49, 27);
             this.ramTextBox.TabIndex = 10;
             // 
             // cpuTextBox
             // 
-            this.cpuTextBox.Location = new System.Drawing.Point(210, 91);
+            this.cpuTextBox.Location = new System.Drawing.Point(240, 121);
+            this.cpuTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cpuTextBox.Name = "cpuTextBox";
-            this.cpuTextBox.Size = new System.Drawing.Size(43, 23);
+            this.cpuTextBox.Size = new System.Drawing.Size(49, 27);
             this.cpuTextBox.TabIndex = 11;
             // 
             // idleTextBox
             // 
-            this.idleTextBox.Location = new System.Drawing.Point(210, 159);
+            this.idleTextBox.Location = new System.Drawing.Point(240, 212);
+            this.idleTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.idleTextBox.Name = "idleTextBox";
-            this.idleTextBox.Size = new System.Drawing.Size(43, 23);
+            this.idleTextBox.Size = new System.Drawing.Size(49, 27);
             this.idleTextBox.TabIndex = 12;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(203, 276);
+            this.saveButton.Location = new System.Drawing.Point(232, 368);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.Size = new System.Drawing.Size(86, 31);
             this.saveButton.TabIndex = 13;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -172,9 +182,10 @@ namespace ScreenMate.View
             // 
             // uploadButton
             // 
-            this.uploadButton.Location = new System.Drawing.Point(24, 249);
+            this.uploadButton.Location = new System.Drawing.Point(27, 332);
+            this.uploadButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(75, 41);
+            this.uploadButton.Size = new System.Drawing.Size(86, 55);
             this.uploadButton.TabIndex = 14;
             this.uploadButton.Text = "Upload new tileset";
             this.uploadButton.UseVisualStyleBackColor = true;
@@ -183,17 +194,17 @@ namespace ScreenMate.View
             // uploadFeedbackLabel
             // 
             this.uploadFeedbackLabel.AutoSize = true;
-            this.uploadFeedbackLabel.Location = new System.Drawing.Point(12, 293);
+            this.uploadFeedbackLabel.Location = new System.Drawing.Point(14, 391);
             this.uploadFeedbackLabel.Name = "uploadFeedbackLabel";
-            this.uploadFeedbackLabel.Size = new System.Drawing.Size(108, 15);
+            this.uploadFeedbackLabel.Size = new System.Drawing.Size(135, 20);
             this.uploadFeedbackLabel.TabIndex = 15;
             this.uploadFeedbackLabel.Text = "Successfull upload!\r\n";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 311);
+            this.ClientSize = new System.Drawing.Size(331, 415);
             this.Controls.Add(this.uploadFeedbackLabel);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.saveButton);
@@ -209,8 +220,10 @@ namespace ScreenMate.View
             this.Controls.Add(this.disappearCheckBox);
             this.Controls.Add(this.ramCheckBox);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form2";
             this.Text = "Configure ScreenMate";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

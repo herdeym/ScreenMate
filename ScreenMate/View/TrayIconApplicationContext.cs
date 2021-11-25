@@ -37,11 +37,13 @@ namespace ScreenMate.View
 
         private void OnStart(object sender, EventArgs e)
         {
+            timer.Start();
             ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
         }
 
         private void OnStop(object sender, EventArgs e)
         {
+            timer.Stop();
             ComponentConfigurator.GetComponentConfigurator().SuspendAllComponents();
         }
 

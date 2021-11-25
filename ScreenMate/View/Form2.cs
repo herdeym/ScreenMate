@@ -34,11 +34,6 @@ namespace ScreenMate.View
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             List<string> enabledComponents = new List<string>();
@@ -61,7 +56,7 @@ namespace ScreenMate.View
                 RamThreshold = Convert.ToInt32(this.ramTextBox.Text),
                 ProcessorThreshold = Convert.ToInt32(this.cpuTextBox.Text),
                 IdleThresholdInSeconds = Convert.ToInt32(this.idleTextBox.Text),
-                ImagePath = filePath
+                ImagePath = filePath == null ? ConfigController.GetConfigController().Configurations.ImagePath : filePath
             };
 
             ConfigController.GetConfigController().Configurations = newConfig;
@@ -87,6 +82,11 @@ namespace ScreenMate.View
 
             uploadFeedbackLabel.Visible = true;
 
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
         }
     }
 }

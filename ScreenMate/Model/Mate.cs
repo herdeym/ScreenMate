@@ -11,6 +11,11 @@ namespace ScreenMate.Model
 		public bool IsRam { get; set; } = false;
 		public bool IsProcessor { get; set; } = false;
 		public bool IsIdle { get; set; } = false;
+		public int SpriteWidth { get; set; } = 32;
+		public int SpriteHeight { get; set; } = 35;
+		public int NumOfSprites { get; set; } = 9;
+		public List<Image> Sprites { get; set; } = new List<Image>();
+		public int CurrentSprite { get; set; } = 0;
 
 	}
 }

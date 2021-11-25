@@ -15,6 +15,8 @@ namespace ScreenMate
 {
     public partial class Form1 : Form
     {
+        private MateController mateController = MateController.GetMateController();
+        protected Timer timer;
         public Form1()
         {
             this.BackColor = Color.LimeGreen;
@@ -22,9 +24,11 @@ namespace ScreenMate
             this.TopMost = true;
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-
+            ShowInTaskbar = false;
+            mateController.LoadSprites();
 
             InitializeComponent();
+            timer = timer1;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -39,16 +43,12 @@ namespace ScreenMate
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            pictureBox1.SetBounds(mateController.Mate.Position.X, mateController.Mate.Position.Y, 32, 35);
+            
+            pictureBox1.Image = mateController.NextImage();
             base.OnPaint(e);
-            DrawCircle(e.Graphics);
         }
 
-        void DrawCircle(Graphics g)
-        {
-            var mate = MateController.GetMateController().Mate;
-            var diameter = 10;
-            var color = mate.IsIdle ? Color.Blue : Color.Red;
-            g.FillEllipse(new SolidBrush(color), mate.Position.X-diameter/2, mate.Position.Y-diameter/2, diameter, diameter);
-        }
+        
     }
 }
