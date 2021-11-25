@@ -7,20 +7,20 @@ using System.Windows.Forms;
 
 namespace ScreenMate.Controller
 {
-	public class MateController
-	{
-		public Mate Mate { get; }
+    public class MateController
+    {
+        public Mate Mate { get; }
 
-		private static MateController mateController;
-		public static MateController GetMateController()
-		{
-			mateController ??= new MateController();
-			return mateController;
-		}
-		private MateController()
-		{
-			Mate= new Mate();
-		}
+        private static MateController mateController;
+        public static MateController GetMateController()
+        {
+            mateController ??= new MateController();
+            return mateController;
+        }
+        private MateController()
+        {
+            Mate = new Mate();
+        }
 
         public bool LoadSprites()
         {
@@ -35,13 +35,18 @@ namespace ScreenMate.Controller
                 //if (image.Width != requiredWidth || image.Width != requiredHeight)
                 //    throw new Exception(string.Format("File was not expected size ({0}, {1}).", requiredWidth, requiredHeight));
 
-                Mate.CurrentSprite = 0;
-                for (int i = 0; i < Mate.NumOfSprites; i++)
+                for (int j = 0; j < Mate.NumOfRows; j++)
                 {
-                    Mate.Sprites.Add(new Bitmap(Mate.SpriteWidth, Mate.SpriteHeight));
-                    using (Graphics g = Graphics.FromImage(Mate.Sprites[i]))
-                        g.DrawImage(image, new Rectangle(0, 0, 32, 32), new Rectangle(i * 32, 0, 32, 32), GraphicsUnit.Pixel);
+                    List<Image> rowList = new List<Image>();
+                    for (int i = 0; i < Mate.NumOfSprites; i++)
+                    {
+                        rowList.Add(new Bitmap(Mate.SpriteWidth, Mate.SpriteHeight));
+                        using (Graphics g = Graphics.FromImage(rowList[i]))
+                            g.DrawImage(image, new Rectangle(0, 0, 32, 32), new Rectangle(i * 32, 0, 32, 32), GraphicsUnit.Pixel);
+                    }
+                    Mate.Sprites.Add(rowList);
                 }
+
 
                 return true;
             }
@@ -56,10 +61,11 @@ namespace ScreenMate.Controller
 
         public Image NextImage()
         {
-            var image = Mate.Sprites[Mate.CurrentSprite];
+            var row = Mate.Sprites[Mate.CurrentSpriteRow];
+            var image = row[Mate.CurrentSpriteCol];
 
-            ++Mate.CurrentSprite;
-            Mate.CurrentSprite %= Mate.NumOfSprites;
+            ++Mate.CurrentSpriteCol;
+            Mate.CurrentSpriteCol %= Mate.NumOfSprites;
 
             return image;
         }
