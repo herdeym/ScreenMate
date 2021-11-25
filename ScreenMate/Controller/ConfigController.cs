@@ -25,14 +25,6 @@ namespace ScreenMate.Controller
 		private ConfigController()
 		{
 			Configurations = LoadConfigurations();
-			if(Configurations.EnabledComponents == null || Configurations.ImagePath == null)
-            {
-				Configurations.EnabledComponents = new List<string>() { "MouseFollow" };
-				Configurations.ImagePath = "../../../Resources/RPGSoldier32x32.png";
-				Configurations.ProcessorThreshold = 70;
-				Configurations.RamThreshold = 70;
-				Configurations.IdleThresholdInSeconds = 10;
-			}
 		}
 
 		private Configurations LoadConfigurations()
@@ -43,7 +35,13 @@ namespace ScreenMate.Controller
 			}
 			catch
 			{
-				return new Configurations();
+				return new Configurations() {
+					EnabledComponents = new List<string>() { "MouseFollow" },
+					ImagePath = "../../../Resources/RPGSoldier32x32.png",
+					ProcessorThreshold = 70,
+					RamThreshold = 70,
+					IdleThresholdInSeconds = 10
+				};
 			}
 		}
 
