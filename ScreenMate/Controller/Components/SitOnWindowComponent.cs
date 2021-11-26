@@ -79,9 +79,9 @@ namespace ScreenMate.Controller.Components
                 Debug.WriteLine(top.ProcessName);
                 var windowHandler = top.MainWindowHandle;
                 GetWindowRect(windowHandler, out position);
-                if (position.Y > 60)
+                var bounds = Screen.PrimaryScreen.Bounds;
+                if (position.Y > 60 && position.Y < bounds.Height-10)
                 {
-                    var bounds = Screen.PrimaryScreen.Bounds;
                     destination = new Point(Math.Min(bounds.Width - 10, Math.Max(10, position.X + (position.Width / 2))), position.Location.Y - mate.SpriteHeight);
                 }
             }
