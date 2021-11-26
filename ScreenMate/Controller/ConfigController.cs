@@ -37,7 +37,7 @@ namespace ScreenMate.Controller
 			{
 				return new Configurations() {
 					EnabledComponents = new List<string>() { "MouseFollow" },
-					ImagePath = "../../../Resources/RPGSoldier32x32.png",
+					ImagePath = "../../../Resources/RPGSoilder53x62.png",
 					ProcessorThreshold = 70,
 					RamThreshold = 70,
 					IdleThresholdInSeconds = 10
