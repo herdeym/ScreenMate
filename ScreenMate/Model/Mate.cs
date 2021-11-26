@@ -17,7 +17,7 @@ namespace ScreenMate.Model
 		public int NumOfRows { get; set; } = 9;
 		public List<List<Image>> Sprites { get; set; } = new List<List<Image>>();
 		public int CurrentSpriteCol { get; set; } = 0;
-		public int CurrentSpriteRow { get; set; } = 0;
+		public int CurrentSpriteRow { get; set; } = 7;
 
 	}
 }
