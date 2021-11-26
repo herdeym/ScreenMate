@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ScreenMate.Controller;
+using ScreenMate.Controller.Components;
+using ScreenMate.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +15,8 @@ namespace ScreenMate
 {
     public partial class Form1 : Form
     {
-        //https://social.msdn.microsoft.com/Forums/vstudio/en-US/0b34f53b-ba56-4939-b9a0-2ff25b365501/displaying-parts-of-an-image-animationally?forum=csharpgeneral
+        private MateController mateController = MateController.GetMateController();
+        protected Timer timer;
         public Form1()
         {
             this.BackColor = Color.LimeGreen;
@@ -20,8 +24,13 @@ namespace ScreenMate
             this.TopMost = true;
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            ShowInTaskbar = false;
+            mateController.LoadSprites();
+
             InitializeComponent();
+            timer = timer1;            
         }
+
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -30,22 +39,17 @@ namespace ScreenMate
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
             Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            pictureBox1.SetBounds(mateController.Mate.Position.X, mateController.Mate.Position.Y, mateController.Mate.SpriteWidth, mateController.Mate.SpriteHeight);
+
+            pictureBox1.Image = mateController.NextImage();
             base.OnPaint(e);
-            DrawCircle(e.Graphics);
         }
 
-        void DrawCircle(Graphics g)
-        {
-            this.Cursor = new Cursor(Cursor.Current.Handle);
-            Point screenMatePos = new Point(Cursor.Position.X + 10, Cursor.Position.Y - 10);
-            int radius = 30;
-            g.FillEllipse(new SolidBrush(Color.Red), screenMatePos.X, screenMatePos.Y, radius, radius);
-        }
+
     }
 }
