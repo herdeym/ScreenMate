@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Linq;
+using System.Diagnostics;
 
 namespace ScreenMate.Controller.Components
 {
@@ -41,6 +42,7 @@ namespace ScreenMate.Controller.Components
                 destination = new Point(200+random.Next(bounds.Width-400), 100 + random.Next(bounds.Height - 200));
                 outOfBounds = false;
             }
+            Debug.WriteLine($"Disappear");
             base.RunComponent();
         }
 

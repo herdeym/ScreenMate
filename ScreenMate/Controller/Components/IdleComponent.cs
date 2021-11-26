@@ -25,9 +25,12 @@ namespace ScreenMate.Controller.Components
         }
         public override void RunComponent()
         {
-            Thread.Sleep(500);
             //Debug.WriteLine(IdleTime());
             mate.IsIdle = configurations.IdleThresholdInSeconds < IdleTime();
+            if(mate.IsIdle)
+            {
+                mate.CurrentSpriteRow = 8;
+            }
             Debug.WriteLine(mate.IsIdle);
         }
         private int IdleTime() //In seconds
@@ -40,8 +43,8 @@ namespace ScreenMate.Controller.Components
 
         public override void SuspendComponent()
         {
-            mate.IsIdle = false;
             base.SuspendComponent();
+            mate.IsIdle = false;
         }
     }
 }

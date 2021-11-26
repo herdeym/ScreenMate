@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ScreenMate.Controller.Components
@@ -18,18 +19,38 @@ namespace ScreenMate.Controller.Components
         private static extern IntPtr GetWindow(IntPtr hWnd, uint uCmd);
 
         private Rectangle position;
+        private Process top;
+        private Thread searchThread;
+        private bool search;
+        public override void ResumeComponent()
+        {
+            searchThread = new Thread(SetTopProcess);
+            search = true;
+            searchThread.Start();
+            base.ResumeComponent();
+        }
 
         public override void RunComponent()
         {
+            FindDestination();
+            Debug.WriteLine($"SitOnWindow");
             base.RunComponent();
         }
 
-        public override void ResumeComponent()
+        private void SetTopProcess()
+        {
+            while (search)
+            {
+                top = FindTopProcess();
+            }
+        }
+
+        private Process FindTopProcess()
         {
             var openWindowProcesses = Process.GetProcesses()
                     .Where(p => p.MainWindowTitle != "" && p.ProcessName != "ScreenMate").ToList();
-            
-            Process top = null;
+
+            Process newTop = null;
             int topz = int.MaxValue;
             foreach (Process p in openWindowProcesses)
             {
@@ -43,11 +64,16 @@ namespace ScreenMate.Controller.Components
 
                 if (z < topz)
                 {
-                    top = p;
+                    newTop = p;
                     topz = z;
                 }
             }
 
+            return newTop;
+        }
+
+        private void FindDestination()
+        {
             if (top != null)
             {
                 Debug.WriteLine(top.ProcessName);
@@ -56,11 +82,19 @@ namespace ScreenMate.Controller.Components
                 if (position.Y > 60)
                 {
                     var bounds = Screen.PrimaryScreen.Bounds;
-                    destination = new Point(Math.Min(bounds.Width-10, Math.Max(10,position.X + new Random().Next(position.Width-position.X))), position.Location.Y-10);
-                    base.ResumeComponent();
+                    destination = new Point(Math.Min(bounds.Width - 10, Math.Max(10, position.X + (position.Width / 2))), position.Location.Y - mate.SpriteHeight);
                 }
             }
-            
+            else
+            {
+                destination = mate.Position;
+            }
+        }
+
+        public override void SuspendComponent()
+        {
+            search = false;
+            base.SuspendComponent();
         }
     }
 }

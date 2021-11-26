@@ -29,12 +29,8 @@ namespace ScreenMate.Controller
 
             try
             {
-                Image image = Bitmap.FromFile(ConfigController.GetConfigController().Configurations.ImagePath);
-
-                // Commented out because the sample file was 385, 32. If you want, you can change the check to less than.
-                //if (image.Width != requiredWidth || image.Width != requiredHeight)
-                //    throw new Exception(string.Format("File was not expected size ({0}, {1}).", requiredWidth, requiredHeight));
-
+                var configsurations = ConfigController.GetConfigController().Configurations;
+                Image image = Bitmap.FromFile(configsurations.ImagePath);
                 for (int j = 0; j < Mate.NumOfRows; j++)
                 {
                     List<Image> rowList = new List<Image>();
@@ -42,7 +38,7 @@ namespace ScreenMate.Controller
                     {
                         rowList.Add(new Bitmap(Mate.SpriteWidth, Mate.SpriteHeight));
                         using (Graphics g = Graphics.FromImage(rowList[i]))
-                            g.DrawImage(image, new Rectangle(0, 0, 32, 32), new Rectangle(i * 32, 0, 32, 32), GraphicsUnit.Pixel);
+                            g.DrawImage(image, new Rectangle(0, 0, Mate.SpriteWidth, Mate.SpriteHeight), new Rectangle(i * Mate.SpriteWidth, j* Mate.SpriteHeight, Mate.SpriteWidth, Mate.SpriteHeight), GraphicsUnit.Pixel);
                     }
                     Mate.Sprites.Add(rowList);
                 }
@@ -61,10 +57,9 @@ namespace ScreenMate.Controller
 
         public Image NextImage()
         {
-            var row = Mate.Sprites[Mate.CurrentSpriteRow];
-            var image = row[Mate.CurrentSpriteCol];
+            var image = Mate.Sprites[Mate.CurrentSpriteRow][Mate.CurrentSpriteCol];
 
-            ++Mate.CurrentSpriteCol;
+            Mate.CurrentSpriteCol++;
             Mate.CurrentSpriteCol %= Mate.NumOfSprites;
 
             return image;

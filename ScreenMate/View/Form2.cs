@@ -14,10 +14,11 @@ namespace ScreenMate.View
     public partial class Form2 : Form
     {
         private OpenFileDialog ofd;
-        private string filePath = "";
+        private string filePath;
         public Form2()
         {
-            ComponentConfigurator.GetComponentConfigurator().SuspendAllComponents();
+            //ComponentConfigurator.GetComponentConfigurator().SuspendAllComponents();
+            filePath = ConfigController.GetConfigController().Configurations.ImagePath;
             InitializeComponent();
             Configurations configuration = ConfigController.GetConfigController().Configurations;
             this.cpuCheckBox.Checked = configuration.EnabledComponents.Contains("Processor");
@@ -27,9 +28,9 @@ namespace ScreenMate.View
             this.followCheckBox.Checked = configuration.EnabledComponents.Contains("MouseFollow");
             this.sitCheckBox.Checked = configuration.EnabledComponents.Contains("SitOnWindow");
 
-            this.ramTextBox.Text = configuration.RamThreshold.ToString();
-            this.cpuTextBox.Text = configuration.ProcessorThreshold.ToString();
-            this.idleTextBox.Text = configuration.IdleThresholdInSeconds.ToString();
+            this.ramTextBox.Value = configuration.RamThreshold;
+            this.cpuTextBox.Value = configuration.ProcessorThreshold;
+            this.idleTextBox.Value = configuration.IdleThresholdInSeconds;
             this.uploadFeedbackLabel.Visible = false;
 
         }
@@ -53,15 +54,15 @@ namespace ScreenMate.View
             Configurations newConfig = new Configurations()
             {
                 EnabledComponents = enabledComponents,
-                RamThreshold = Convert.ToInt32(this.ramTextBox.Text),
-                ProcessorThreshold = Convert.ToInt32(this.cpuTextBox.Text),
-                IdleThresholdInSeconds = Convert.ToInt32(this.idleTextBox.Text),
-                ImagePath = filePath == null ? ConfigController.GetConfigController().Configurations.ImagePath : filePath
+                RamThreshold = (int)ramTextBox.Value,
+                ProcessorThreshold = (int)cpuTextBox.Value,
+                IdleThresholdInSeconds = (int)idleTextBox.Value,
+                ImagePath = filePath
             };
 
             ConfigController.GetConfigController().Configurations = newConfig;
             ConfigController.GetConfigController().SaveConfigurations();
-            ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
+            //ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
             this.Close();
         }
 
@@ -84,9 +85,5 @@ namespace ScreenMate.View
 
         }
 
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
-        }
     }
 }

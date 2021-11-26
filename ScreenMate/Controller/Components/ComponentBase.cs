@@ -37,14 +37,13 @@ namespace ScreenMate.Controller.Components
             {
                 manualResetEvent.WaitOne();
                 RunComponent();
-                Thread.Sleep(100);
             }
         }
         public abstract void RunComponent();
         
         public virtual void SuspendComponent() => manualResetEvent.Reset();
 
-        public void UpdateComponentConfiguration()
+        public virtual void UpdateComponentConfiguration()
         {
             configurations = ConfigController.GetConfigController().Configurations;
         }

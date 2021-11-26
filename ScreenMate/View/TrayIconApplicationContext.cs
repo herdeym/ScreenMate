@@ -21,10 +21,10 @@ namespace ScreenMate.View
                 ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(),
                 Visible = true
             };
-            trayIcon.ContextMenuStrip.Items.Add("Start", Image.FromFile("../../../Resources/tray_icon.ico"), OnStart);
-            trayIcon.ContextMenuStrip.Items.Add("Stop", Image.FromFile("../../../Resources/tray_icon.ico"), OnStop);
-            trayIcon.ContextMenuStrip.Items.Add("Configure", Image.FromFile("../../../Resources/tray_icon.ico"), OnConfigure);
-            trayIcon.ContextMenuStrip.Items.Add("Exit",Image.FromFile("../../../Resources/tray_icon.ico") ,OnExit);
+            trayIcon.ContextMenuStrip.Items.Add("Start", Image.FromFile("../../../Resources/start.ico"), OnStart);
+            trayIcon.ContextMenuStrip.Items.Add("Stop", Image.FromFile("../../../Resources/stop.ico"), OnStop);
+            trayIcon.ContextMenuStrip.Items.Add("Configure", Image.FromFile("../../../Resources/settings.ico"), OnConfigure);
+            trayIcon.ContextMenuStrip.Items.Add("Exit",Image.FromFile("../../../Resources/exit.ico") ,OnExit);
         }
 
         private void OnExit(object sender, EventArgs e)

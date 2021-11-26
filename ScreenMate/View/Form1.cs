@@ -28,8 +28,9 @@ namespace ScreenMate
             mateController.LoadSprites();
 
             InitializeComponent();
-            timer = timer1;
+            timer = timer1;            
         }
+
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -43,12 +44,12 @@ namespace ScreenMate
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            pictureBox1.SetBounds(mateController.Mate.Position.X, mateController.Mate.Position.Y, 32, 35);
-            
+            pictureBox1.SetBounds(mateController.Mate.Position.X, mateController.Mate.Position.Y, mateController.Mate.SpriteWidth, mateController.Mate.SpriteHeight);
+
             pictureBox1.Image = mateController.NextImage();
             base.OnPaint(e);
         }
 
-        
+
     }
 }
