@@ -27,6 +27,7 @@ namespace ScreenMate.Controller.Components
         {
             SuspendComponent();
             running = false;
+            manualResetEvent.Set();
         }
 
         public virtual void ResumeComponent() => manualResetEvent.Set();
@@ -35,8 +36,8 @@ namespace ScreenMate.Controller.Components
         {
             while (running)
             {
-                manualResetEvent.WaitOne();
                 RunComponent();
+                manualResetEvent.WaitOne();
             }
         }
         public abstract void RunComponent();

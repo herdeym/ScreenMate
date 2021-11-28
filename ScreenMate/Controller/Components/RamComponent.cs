@@ -42,7 +42,7 @@ namespace ScreenMate.Controller.Components
                 counter = Math.Max(0, --counter);
             mate.IsRam = counter > 20;
             Debug.WriteLine($"Ram: {mate.IsRam}");
-            if (mate.IsRam)
+            if (mate.IsRam && !mate.IsIdle)
                 mate.CurrentSpriteRow = mate.IsProcessor ? 6 : 4;
             
         }

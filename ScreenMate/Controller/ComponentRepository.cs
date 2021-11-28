@@ -12,14 +12,6 @@ namespace ScreenMate.Controller
 	{
 		private Dictionary<string, IComponent> components = new Dictionary<string, IComponent>();
 
-
-		private static ComponentRepository componentRepository;
-		public static ComponentRepository GetComponentRepository()
-		{
-			componentRepository ??= new ComponentRepository();
-			return componentRepository;
-		}
-
 		public void InsertOrUpdate(IComponent c)
 		{
 			var componentIdentifier = c.GetIdentifier();

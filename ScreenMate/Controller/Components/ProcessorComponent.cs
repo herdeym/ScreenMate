@@ -21,14 +21,17 @@ namespace ScreenMate.Controller.Components
 
         public override void RunComponent()
         {
+            //must sleep
+            Thread.Sleep(100);
             var CPUPercentage= CPUPerformance.NextValue();
+            Debug.WriteLine($"CPUPercentage: {CPUPercentage}");
             if (CPUPercentage > configurations.ProcessorThreshold && counter < 25)
                 counter++;
             else
                 counter = Math.Max(0, --counter);
             mate.IsProcessor = counter > 20;
 
-            if (mate.IsProcessor)
+            if (mate.IsProcessor && !mate.IsIdle)
                 mate.CurrentSpriteRow = mate.IsRam ? 6 : 5;
 
             Debug.WriteLine($"Processor: {mate.IsProcessor}");
