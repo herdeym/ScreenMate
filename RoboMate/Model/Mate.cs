@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace ScreenMate.Model
+namespace RoboMate.Model
 {
 	public class Mate
 	{

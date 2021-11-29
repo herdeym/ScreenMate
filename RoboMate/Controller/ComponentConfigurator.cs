@@ -1,5 +1,5 @@
-﻿using ScreenMate.Controller.Components;
-using ScreenMate.Model;
+﻿using RoboMate.Controller.Components;
+using RoboMate.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 
-namespace ScreenMate.Controller
+namespace RoboMate.Controller
 {
     public class ComponentConfigurator
     {

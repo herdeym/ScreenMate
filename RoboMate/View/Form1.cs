@@ -1,6 +1,6 @@
-﻿using ScreenMate.Controller;
-using ScreenMate.Controller.Components;
-using ScreenMate.Model;
+﻿using RoboMate.Controller;
+using RoboMate.Controller.Components;
+using RoboMate.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScreenMate
+namespace RoboMate
 {
     public partial class Form1 : Form
     {

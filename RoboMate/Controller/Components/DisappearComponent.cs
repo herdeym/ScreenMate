@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Diagnostics;
 
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
     [Component("Disappear")]
     public class DisappearComponent : MovementComponentBase

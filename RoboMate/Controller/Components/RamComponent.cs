@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
     [Component("Ram")]
     public class RamComponent : ComponentBase

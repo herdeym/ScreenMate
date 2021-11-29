@@ -1,12 +1,12 @@
-using ScreenMate.Controller;
-using ScreenMate.View;
+using RoboMate.Controller;
+using RoboMate.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScreenMate
+namespace RoboMate
 {
     static class Program
     {

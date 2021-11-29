@@ -1,11 +1,11 @@
-﻿using ScreenMate.Model;
+﻿using RoboMate.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ScreenMate.Controller
+namespace RoboMate.Controller
 {
     public class MateController
     {

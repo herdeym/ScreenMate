@@ -1,11 +1,11 @@
-﻿using ScreenMate.Controller;
-using ScreenMate.Controller.Components;
+﻿using RoboMate.Controller;
+using RoboMate.Controller.Components;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace ScreenMate.Extensions
+namespace RoboMate.Extensions
 {
 	public static class ComponentExtensions
 	{

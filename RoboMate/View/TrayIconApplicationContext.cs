@@ -1,11 +1,11 @@
-﻿using ScreenMate.Controller;
+﻿using RoboMate.Controller;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ScreenMate.View
+namespace RoboMate.View
 {
     public class TrayIconApplicationContext : Form1
     {
@@ -17,7 +17,7 @@ namespace ScreenMate.View
             trayIcon = new NotifyIcon()
             {
                 Icon = new System.Drawing.Icon("../../../Resources/tray_icon.ico"),
-                Text = "Configure ScreenMate settings by right-clicking.",
+                Text = "Configure RoboMate settings by right-clicking.",
                 ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(),
                 Visible = true
             };

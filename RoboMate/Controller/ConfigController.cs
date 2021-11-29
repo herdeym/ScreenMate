@@ -1,17 +1,17 @@
 ﻿using Newtonsoft.Json;
-using ScreenMate.Controller.Components;
-using ScreenMate.Model;
+using RoboMate.Controller.Components;
+using RoboMate.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
 
-namespace ScreenMate.Controller
+namespace RoboMate.Controller
 {
 	public class ConfigController
 	{
-		private readonly string configFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ScreenMate\\configurations.json";
+		private readonly string configFilePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\RoboMate\\configurations.json";
 		private readonly ComponentConfigurator componentConfigurator = ComponentConfigurator.GetComponentConfigurator();
 		public Configurations Configurations { get; set; }
 
@@ -49,7 +49,7 @@ namespace ScreenMate.Controller
 		{
 			string json = JsonConvert.SerializeObject(Configurations).ToString();
 			//implicit check
-			Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ScreenMate");
+			Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\RoboMate");
 
 			File.WriteAllText(configFilePath, json);
 

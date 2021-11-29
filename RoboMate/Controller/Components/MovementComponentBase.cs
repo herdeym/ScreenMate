@@ -6,7 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading;
 
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
     
     public abstract class MovementComponentBase : ComponentBase

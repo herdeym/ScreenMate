@@ -1,5 +1,5 @@
-﻿using ScreenMate.Controller;
-using ScreenMate.Model;
+﻿using RoboMate.Controller;
+using RoboMate.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ScreenMate.View
+namespace RoboMate.View
 {
     public partial class Form2 : Form
     {

@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
 	[Component("MouseFollow")]
 	public class MouseFollowComponent : MovementComponentBase

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
     [Component("SitOnWindow")]
     public class SitOnWindowComponent : MovementComponentBase
@@ -48,7 +48,7 @@ namespace ScreenMate.Controller.Components
         private Process FindTopProcess()
         {
             var openWindowProcesses = Process.GetProcesses()
-                    .Where(p => p.MainWindowTitle != "" && p.ProcessName != "ScreenMate").ToList();
+                    .Where(p => p.MainWindowTitle != "" && p.ProcessName != "RoboMate").ToList();
 
             Process newTop = null;
             int topz = int.MaxValue;

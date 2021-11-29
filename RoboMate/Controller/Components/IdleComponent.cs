@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using System.Runtime.InteropServices;
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
     [Component("Idle")]
     public class IdleComponent : ComponentBase

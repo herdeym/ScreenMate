@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ScreenMate.Model
+namespace RoboMate.Model
 {
 	public class Configurations
 	{

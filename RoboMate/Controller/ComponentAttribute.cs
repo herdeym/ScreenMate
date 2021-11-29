@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ScreenMate.Controller
+namespace RoboMate.Controller
 {
 	public class ComponentAttribute : Attribute
 	{

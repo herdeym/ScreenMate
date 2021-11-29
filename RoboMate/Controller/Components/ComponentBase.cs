@@ -1,10 +1,7 @@
-﻿using ScreenMate.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RoboMate.Model;
 using System.Threading;
 
-namespace ScreenMate.Controller.Components
+namespace RoboMate.Controller.Components
 {
     public abstract class ComponentBase : IComponent
     {

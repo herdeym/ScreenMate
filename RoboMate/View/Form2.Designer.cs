@@ -1,5 +1,5 @@
 ﻿
-namespace ScreenMate.View
+namespace RoboMate.View
 {
     partial class Form2
     {
@@ -230,7 +230,7 @@ namespace ScreenMate.View
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form2";
-            this.Text = "Configure ScreenMate";
+            this.Text = "Configure RoboMate";
             ((System.ComponentModel.ISupportInitialize)(this.ramTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpuTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.idleTextBox)).EndInit();
