@@ -18,11 +18,11 @@ namespace ScreenMate.Controller.Components
         public override void RunComponent()
         {
             Thread.Sleep(100);
+            if (mate.IsProcessor || mate.IsIdle || mate.IsRam)
+                return;
             var distance = GetDistanceFromMate(destination);
             Debug.WriteLine($"Distance: {distance}");
             Debug.WriteLine($"mate.Position: {mate.Position}");
-            if (mate.IsProcessor || mate.IsIdle || mate.IsRam)
-                return;
             if (distance < stoppingDistance)
             {
                 mate.CurrentSpriteRow = 7;

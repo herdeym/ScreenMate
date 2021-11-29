@@ -62,6 +62,7 @@ namespace ScreenMate.View
 
             ConfigController.GetConfigController().Configurations = newConfig;
             ConfigController.GetConfigController().SaveConfigurations();
+            MateController.GetMateController().LoadSprites();
             //ComponentConfigurator.GetComponentConfigurator().ResumeAllComponents();
             this.Close();
         }
